@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class TransferRequest {
     private String accountNumber;
-    private String amount;
+    private Integer amount;
     private String transactionDate;
     private String note;
 }

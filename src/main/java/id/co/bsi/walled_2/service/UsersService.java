@@ -1,5 +1,6 @@
 package id.co.bsi.walled_2.service;
 
+import id.co.bsi.walled_2.dto.request.LoginRequest;
 import id.co.bsi.walled_2.dto.request.RegisterRequest;
 import id.co.bsi.walled_2.model.Users;
 import id.co.bsi.walled_2.repository.UsersRepository;
@@ -29,6 +30,17 @@ public class UsersService {
 
 
         return this.usersRepository.save(users);
+    }
+
+
+    public String login(LoginRequest loginRequest) {
+        String token = "adjadssajdp";
+        Optional<Users> findUserByEmailanadPassword = this.usersRepository.findByEmailAndPassword(loginRequest.getEmail(), loginRequest.getPassword());
+        if (findUserByEmailanadPassword.isEmpty()) {
+            throw new RuntimeException("Email and password do not match");
+        }
+        return token;
+
     }
 
 

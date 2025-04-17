@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class RegisterResponse {
     private String status;
-    private String token;
+    private String message;
 }
